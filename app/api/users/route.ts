@@ -35,9 +35,9 @@ export async function POST(req: Request) {
     }
 }
 
-export async function PUT(req: Request, { params }: Context) {
+export async function PUT(req: Request) {
     try {
-        const id = parseInt(params.id);
+        const id = parseInt((new URL(req.url).searchParams).get("id")!);
 
         if (isNaN(id)) return NextResponse.json({
             error: "Invalid id"
@@ -65,9 +65,9 @@ export async function PUT(req: Request, { params }: Context) {
     }
 }
 
-export async function DELETE(req: Request, { params }: Context) {
+export async function DELETE(req: Request) {
     try {
-        const id = parseInt(params.id);
+        const id = parseInt((new URL(req.url).searchParams).get("id")!);
 
         if (isNaN(id)) return NextResponse.json({
             error: "Invalid id"
