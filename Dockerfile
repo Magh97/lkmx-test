@@ -13,6 +13,8 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+
+RUN pnpm db:client
 RUN pnpm build
 
 FROM base AS runner

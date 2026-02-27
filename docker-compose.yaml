@@ -21,7 +21,6 @@ services:
       DATABASE_URL: "postgresql://postgres:password@db:5432/mydb?schema=public"
     depends_on:
       - db
-    command: sh -c "pnpm dlx prisma migrate deploy && pnpm dlx prisma generate && pnpm start "
 
 volumes:
   postgres_data:
