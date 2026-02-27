@@ -159,7 +159,7 @@ export default function UsersPage() {
                 !isModalShow && (
                     <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
                         <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
-                            <h1 className="text-2xl font-bold text-gray-800">
+                            <h1 className="text-3xl font-bold text-gray-800">
                                 Users
                             </h1>
                             <button
@@ -215,7 +215,7 @@ export default function UsersPage() {
                 isModalShow && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                         <div className="bg-white rounded-lg shadow-xl p-6 w-96">
-                            <h2 className="text-xl font-bold mb-4">
+                            <h2 className="text-3xl font-bold mb-4 text-black">
                                 { currentAction === 'create' && ('Create User')}
                                 { currentAction === 'update' && ('Update User')}
                                 { currentAction === 'delete' && ('Delete User')}
@@ -253,13 +253,13 @@ export default function UsersPage() {
                                     <button 
                                         type="button" 
                                         onClick={_ => setIsModalShow(false)}
-                                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded m-auto"
                                     > 
                                         Close 
                                     </button>
                                     <button 
                                         type="submit"
-                                        className={(`text-white font-bold py-2 px-4 rounded ${
+                                        className={(`text-white font-bold py-2 px-4 rounded m-auto ${
                                             ( currentAction === 'delete' ? 'bg-red-600 hover:bg-red-700' : currentAction === 'update' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700')
                                         }`)}
                                     >
