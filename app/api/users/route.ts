@@ -1,12 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
-interface Context {
-    params: {
-        id: string;
-    }
-}
-
 export async function GET() {
     try {
         const users = await prisma.user.findMany();
@@ -35,56 +29,3 @@ export async function POST(req: Request) {
     }
 }
 
-export async function PUT(req: Request) {
-    try {
-        const id = parseInt((new URL(req.url).searchParams).get("id")!);
-
-        if (isNaN(id)) return NextResponse.json({
-            error: "Invalid id"
-        }, { status: 400 });
-
-        const { email, name } = await req.json();
-
-        const updatedUser = await prisma.user.update({
-            where: {
-                id
-            },
-            data: {
-                name, 
-                email
-            }
-        });
-
-        return NextResponse.json(updatedUser, {
-            status: 304
-        });
-    } catch(err) {
-        return NextResponse.json({
-            error: "Error updating user"
-        }, { status : 500 });
-    }
-}
-
-export async function DELETE(req: Request) {
-    try {
-        const id = parseInt((new URL(req.url).searchParams).get("id")!);
-
-        if (isNaN(id)) return NextResponse.json({
-            error: "Invalid id"
-        }, { status: 400 });
-        
-        await prisma.user.delete({
-            where: {
-                id
-            }
-        });
-
-        return NextResponse.json({
-            message: "User deleted"
-        }, { status: 200 })
-    } catch(err) {
-        return NextResponse.json({
-            error: "Error deleting user"
-        }, { status: 500 });
-    }
-}
