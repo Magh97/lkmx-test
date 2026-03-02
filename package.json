@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "db:deploy": "pnpm dlx prisma@6.19.2 migrate deploy",
-    "db:client": "pnpm dlx prisma@6.19.2 generate"
+    "db:client": "pnpm dlx prisma@6.19.2 generate",
+    "db:migrate": "pnpm dlx prisma@6.19.2 migrate dev"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^6.19.2",
