@@ -102,8 +102,6 @@ export default function UsersPage() {
     const deleteUser = async () => {
         if (!user) return;
 
-        const { name, email } = user;
-
         try {
             const res = await fetch(`/api/users/${user.id}`, {
                 method: 'DELETE',
