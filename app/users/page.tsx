@@ -58,14 +58,15 @@ export default function UsersPage() {
 
             if (res.ok) {
                 fetchUsers();
-                setIsModalShow(false);
                 setUser(null);
-                alert('User updated');
+                alert('User created');
             } else { 
-                alert('Error updating user');
+                alert('Error creating user');
             }
         } catch(err) {
-            
+            console.error(err);
+        } finally {
+            setIsModalShow(false);
         }
     }
 
@@ -86,14 +87,15 @@ export default function UsersPage() {
 
             if (res.ok) {
                 fetchUsers();
-                setIsModalShow(false);
                 setUser(null);
                 alert('User created');
             } else { 
                 alert('Error creating user');
             }
         } catch(err) {
-            
+            console.error(err);
+        } finally {
+            setIsModalShow(false);
         }
     }
 
@@ -119,7 +121,9 @@ export default function UsersPage() {
                 alert('Error deleting user');
             }
         } catch(err) {
-            
+            console.error(err);
+        } finally {
+            setIsModalShow(false);
         }
     }
 
